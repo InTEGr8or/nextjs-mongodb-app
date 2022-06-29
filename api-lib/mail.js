@@ -3,9 +3,17 @@
 // like Mailgun, AWS SES, etc.
 import nodemailer from 'nodemailer';
 
-const nodemailerConfig = process.env.NODEMAILER_CONFIG
-  ? JSON.parse(process.env.NODEMAILER_CONFIG)
-  : {};
+const nodemailerConfig = {
+  host: 'smtp.gmail.com',
+  port: 587,
+  ssl: false,
+  tls: true,
+  auth: {
+    user: 'alex@thefullertonian.com',
+    pass: 'wnacptvyvivooesj',
+  },
+  domain: 'http://localhost:3000/',
+};
 
 const transporter = nodemailer.createTransport(nodemailerConfig);
 

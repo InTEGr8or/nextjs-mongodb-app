@@ -106,7 +106,7 @@ const Nav = () => {
           justifyContent="space-between"
         >
           <Link href="/">
-            <a className={styles.logo}>Next.js MongoDB App</a>
+            <a className={styles.logo}>Sweet Sigs: Custom Email Signature Generator</a>
           </Link>
           <Container>
             {user ? (

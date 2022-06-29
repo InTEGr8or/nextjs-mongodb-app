@@ -1,4 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { ButtonLink } from '@/components/Button';
+import { Card } from '@/components/Card';
 import { Container, Spacer, Wrapper } from '@/components/Layout';
 import Link from 'next/link';
 import styles from './Hero.module.css';
@@ -8,9 +10,9 @@ const Hero = () => {
     <Wrapper>
       <div>
         <h1 className={styles.title}>
-          <span className={styles.nextjs}>Next.js</span>
-          <span className={styles.mongodb}>MongoDB</span>
-          <span>App</span>
+          <span className={styles.project}>Sweet Sigs</span>
+          <span className={styles.signature}>Email Signature</span>
+          <span>Generator</span>
         </h1>
         <Container justifyContent="center" className={styles.buttons}>
           <Container>
@@ -29,10 +31,12 @@ const Hero = () => {
             </ButtonLink>
           </Container>
         </Container>
-        <p className={styles.subtitle}>
-          A Next.js and MongoDB web application, designed with simplicity for
-          learning and real-world applicability in mind.
-        </p>
+        <h3 className={styles.subtitle}>Professional Email Presentation in 3 Easy Steps!</h3>
+        <Container justifyContent="space-evenly">
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+        </Container>
       </div>
     </Wrapper>
   );
