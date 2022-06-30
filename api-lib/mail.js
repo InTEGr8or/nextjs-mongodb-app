@@ -1,22 +1,30 @@
-// This project uses the nodemailer library to send email
-// However, it is recommended to switch over to dedicated email services
-// like Mailgun, AWS SES, etc.
-import nodemailer from 'nodemailer';
+'use strict'
+import request from 'request';
 
-const nodemailerConfig = process.env.NODEMAILER_CONFIG
-  ? JSON.parse(process.env.NODEMAILER_CONFIG)
-  : {};
-
-const transporter = nodemailer.createTransport(nodemailerConfig);
+const sesUrl = process.env.SES_LAMBDA_URL;
 
 export async function sendMail({ from, to, subject, html }) {
   try {
-    await transporter.sendMail({
-      from,
-      to,
-      subject,
-      html,
-    });
+    const messagePackage = {
+      httpMethod: "POST",
+      body: {
+        toEmails: [
+          to
+        ],
+        subject: subject,
+        message: html
+      }
+    }
+    request({
+      method: "POST",
+      url: sesUrl,
+      json: true,
+      body: messagePackage
+    }, function(error, response, body){
+      if(error){
+        throw new Error(`Could not send email: ${body}`)
+      }
+    })
   } catch (e) {
     throw new Error(`Could not send email: ${e.message}`);
   }
@@ -24,5 +32,5 @@ export async function sendMail({ from, to, subject, html }) {
 
 export const CONFIG = {
   // TODO: Replace with the email you want to use to send email
-  from: nodemailerConfig?.auth?.user,
+  from: process.env.EMAIL_FROM,
 };
