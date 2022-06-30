@@ -33,9 +33,9 @@ const Hero = () => {
         </Container>
         <h3 className={styles.subtitle}>Professional Email Presentation in 3 Easy Steps!</h3>
         <Container justifyContent="space-evenly">
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+          <Card img="/images/handshake-simple-solid.svg" alt="handshake" title="Step 1:">Card Text</Card>
+          <Card img="/images/address-book-solid.svg" alt="address book" title="Step 2:"></Card>
+          <Card img="/images/people-group-solid.svg" alt="group of people" title="Step 3:"></Card>
         </Container>
       </div>
     </Wrapper>
