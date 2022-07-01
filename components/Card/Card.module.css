@@ -8,7 +8,12 @@
   color: var(--secondary);
   display: flex;
   flex-direction: column;
-  padding-top: 1.5rem;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
 }
 
 .card h4,
