@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: The template used to create an ECS Service from the ECS Console.
+Parameters:
+  ECSClusterName:
+    Type: String
+    Default: nextjs-mongodb-cluster
+  SecurityGroupIDs:
+    Type: CommaDelimitedList
+    Default: sg-0d88946256022eccf
+  SubnetIDs:
+    Type: CommaDelimitedList
+    Default: 'subnet-098da7586d27db665,subnet-07ec1ddbecb1b83d5'
+  VpcID:
+    Type: String
+    Default: vpc-09b57340d30f21508
+  LoadBalancerType:
+    Type: String
+    Default: application
+    AllowedValues:
+      - application
+      - network
+    ConstraintDescription: must specify an application or network load balancer type.
+  LoadBalancerName:
+    Type: String
+    Default: ''
+Resources:
+  ECSService:
+    Type: 'AWS::ECS::Service'
+    Properties:
+      Cluster: nextjs-mongodb-cluster
+      CapacityProviderStrategy:
+        - CapacityProvider: FARGATE
+          Base: 0
+          Weight: 1
+      TaskDefinition: >-
+        arn:aws:ecs:us-east-1:318364255844:task-definition/nextjs-mongodb-app-task:1
+      ServiceName: nextjs-mongodb-service
+      DesiredCount: 1
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          SecurityGroups: !Ref SecurityGroupIDs
+          Subnets: !Ref SubnetIDs
+      PlatformVersion: LATEST
+      DeploymentConfiguration:
+        MaximumPercent: 200
+        MinimumHealthyPercent: 100
+      DeploymentController:
+        Type: ECS
+Outputs:
+  ClusterName:
+    Description: The cluster used to create the service.
+    Value: !Ref ECSClusterName
+  ECSService:
+    Description: The created service.
+    Value: !Ref ECSService

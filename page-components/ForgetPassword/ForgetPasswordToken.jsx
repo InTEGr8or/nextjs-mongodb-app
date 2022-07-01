@@ -27,7 +27,7 @@ const NewPassword = ({ token }) => {
         });
         setStatus('success');
       } catch (e) {
-        toast.error(e.message);
+        toast.error(JSON.stringify(e));
         setStatus(undefined);
       }
     },

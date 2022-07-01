@@ -1,0 +1,152 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: The template used to create an ECS Service from the ECS Console.
+Parameters:
+  ECSClusterName:
+    Type: String
+    Default: nextjs-mongodb-cluster
+  SecurityGroupIDs:
+    Type: CommaDelimitedList
+    Default: sg-6e6c4f3b
+  SubnetIDs:
+    Type: CommaDelimitedList
+    Default: 'subnet-9c4887e4,subnet-04cd254e,subnet-7abe6727,subnet-866233ad'
+  VpcID:
+    Type: String
+    Default: vpc-fa394482
+  LoadBalancerType:
+    Type: String
+    Default: application
+    AllowedValues:
+      - application
+      - network
+    ConstraintDescription: must specify an application or network load balancer type.
+  LoadBalancerName:
+    Type: String
+    Default: nextjs-mongodb-task-load-balancer
+Resources:
+  ECSService:
+    Type: 'AWS::ECS::Service'
+    Properties:
+      Cluster: nextjs-mongodb-cluster
+      CapacityProviderStrategy:
+        - CapacityProvider: FARGATE
+          Base: 0
+          Weight: 1
+      TaskDefinition: >-
+        arn:aws:ecs:us-west-2:318364255844:task-definition/nextjs-mongodb-task-definition:1
+      ServiceName: nextjs-mongodb-service
+      DesiredCount: 1
+      LoadBalancers:
+        - ContainerName: nextjs-mongodb-app
+          ContainerPort: 80
+          LoadBalancerName: !Ref 'AWS::NoValue'
+          TargetGroupArn: !Ref TargetGroup
+      HealthCheckGracePeriodSeconds: '0'
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          SecurityGroups: !Ref SecurityGroupIDs
+          Subnets: !Ref SubnetIDs
+      PlatformVersion: LATEST
+      DeploymentConfiguration:
+        MaximumPercent: 200
+        MinimumHealthyPercent: 100
+      DeploymentController:
+        Type: ECS
+    DependsOn: Listener
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 286d2b92-0b20-464a-960e-1f0c7fed49ed
+  LoadBalancer:
+    Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
+    Properties:
+      Name: nextjs-mongodb-load-balancer
+      SecurityGroups: !Ref SecurityGroupIDs
+      Subnets:
+        - subnet-9c4887e4
+        - subnet-04cd254e
+        - subnet-7abe6727
+        - subnet-866233ad
+      Type: application
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 9a39d3dc-7567-4b95-b7d3-ca0c45902264
+  TargetGroup:
+    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Properties:
+      Name: nextjs-mongodb-task-target-group
+      VpcId: vpc-fa394482
+      Protocol: HTTP
+      Port: 80
+      TargetType: ip
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: b1095afe-b31b-40a9-801d-1b5da05e7435
+  Listener:
+    Type: 'AWS::ElasticLoadBalancingV2::Listener'
+    Properties:
+      DefaultActions:
+        - TargetGroupArn: !Ref TargetGroup
+          Type: forward
+      LoadBalancerArn: !Ref LoadBalancer
+      Port: 80
+      Protocol: HTTP
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: c94d99c1-e529-4b60-bb16-b81695c317b0
+Outputs:
+  ClusterName:
+    Description: The cluster used to create the service.
+    Value: !Ref ECSClusterName
+  ECSService:
+    Description: The created service.
+    Value: !Ref ECSService
+  LoadBalancer:
+    Description: The created load balancer.
+    Value: !Ref LoadBalancer
+  Listener:
+    Description: The created listener.
+    Value: !Ref Listener
+  TargetGroup:
+    Description: The created target group.
+    Value: !Ref TargetGroup
+Metadata:
+  'AWS::CloudFormation::Designer':
+    b1095afe-b31b-40a9-801d-1b5da05e7435:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 60
+        'y': 90
+      z: 1
+      embeds: []
+    9a39d3dc-7567-4b95-b7d3-ca0c45902264:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 180
+        'y': 90
+      z: 1
+      embeds: []
+    c94d99c1-e529-4b60-bb16-b81695c317b0:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 60
+        'y': 210
+      z: 1
+      embeds: []
+    286d2b92-0b20-464a-960e-1f0c7fed49ed:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 180
+        'y': 210
+      z: 1
+      embeds: []
+      dependson:
+        - c94d99c1-e529-4b60-bb16-b81695c317b0
