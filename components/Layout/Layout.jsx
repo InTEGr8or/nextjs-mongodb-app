@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Next.js MongoDB App</title>
+        <title>Sweet Sigs: Custom Email Signature Generator</title>
         <meta
           key="viewport"
           name="viewport"
