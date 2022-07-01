@@ -4,17 +4,27 @@ import Image from 'next/image';
 import { forwardRef } from 'react';
 
 
-const Card = ({img}, {alt}) => {
+const Card = forwardRef(function Card(
+    {
+        img,
+        alt,
+        title,
+        children
+    },
+    ref
+) {
     return (
-    <div className={styles.card}>
-        <Image src={img} alt={alt} width="150" height="150" />
+    <div 
+        className={styles.card}
+        ref={ref}
+    >
+        <Image src={img} alt={alt} width="150" height="150" className="icon" />
         <div className={styles.container}>
-            <h4><b>Test</b></h4> 
-            <p>Description</p> 
+            <h4><b>{title}</b></h4> 
+            <p>{children}</p>
         </div>
     </div>
     );
-  };
-  
+})
+
 export default Card;
-  

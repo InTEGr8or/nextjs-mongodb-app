@@ -33,9 +33,15 @@ const Hero = () => {
         </Container>
         <h3 className={styles.subtitle}>Professional Email Presentation in 3 Easy Steps!</h3>
         <Container justifyContent="space-evenly">
-          <Card img="/images/handshake-simple-solid.svg" alt="handshake" title="Step 1:">Card Text</Card>
-          <Card img="/images/address-book-solid.svg" alt="address book" title="Step 2:"></Card>
-          <Card img="/images/people-group-solid.svg" alt="group of people" title="Step 3:"></Card>
+          <Card img="/images/handshake-simple-solid.svg" alt="handshake" title="Step 1:">
+            Tell us the size of your organization and how many signatures you need.
+          </Card>
+          <Card img="/images/address-book-solid.svg" alt="address book" title="Step 2:">
+            Choose a template and upload a spreadsheet of individuals and their contact info. 
+          </Card>
+          <Card img="/images/people-group-solid.svg" alt="group of people" title="Step 3:">
+            Generate templates to a local folder or send them directly to everyone via email.
+          </Card>
         </Container>
       </div>
     </Wrapper>
