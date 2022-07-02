@@ -28,7 +28,7 @@ const Hero = () => {
                 type="secondary"
                 className={styles.button}
               >
-                GitHub
+                GitHub2
               </ButtonLink>
             </Container>
           </Container>
