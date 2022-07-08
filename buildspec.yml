@@ -1,4 +1,9 @@
 version: 0.2
+eb_codebuild_settings:
+  CodeBuildServiceRole: arn:aws:iam::318364255844:role/service-role/codebuild-nextjs-mongodb-app-service-role
+  ComputeType: t2-small
+  Image: 318364255844.dkr.ecr.us-east-1.amazonaws.com/memepact
+  Timeout: 20
 phases:
   install:
     runtime-versions:
