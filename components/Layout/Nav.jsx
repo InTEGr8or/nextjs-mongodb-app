@@ -106,7 +106,9 @@ const Nav = () => {
           justifyContent="space-between"
         >
           <Link href="/">
-            <a className={styles.logo}>Sweet Sigs: Custom Email Signature Generator</a>
+            <a className={styles.logo}>
+              Sweet Sigs: Custom Email Signature Generator
+            </a>
           </Link>
           <Container>
             {user ? (
