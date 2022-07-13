@@ -1,0 +1,1 @@
+pgrep -f npm | xargs kill -9
