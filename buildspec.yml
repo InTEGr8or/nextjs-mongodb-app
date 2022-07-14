@@ -4,18 +4,18 @@ phases:
   pre_build:
     commands:
       #- $(aws ecr get-login --no-include-email --region us-west-2)
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 318364255844dkr.ecr.us-west-2.amazonaws.com
-  build:
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 318364255844.dkr.ecr.us-west-2.amazonaws.com
+  Build:
     commands:
       - "echo Build started on `date`"
       - "echo Building the Docker image..."
       - "docker build -t nextjs-mongodb-app ."
-      - "docker tag nextjs-mongodb-app:latest 318364255844dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest"
+      - "docker tag nextjs-mongodb-app:latest 318364255844.dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest"
   post_build:
     commands:
       - "echo Build completed on `date`"
       - "echo Pushing the Docker image..."
-      - "docker push 318364255844dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest"
-      - printf '[{"name":"rakeshcontainer","imageUri":"%s"}]' 318364255844dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest > imagedefinitions.json
+      - "docker push 318364255844.dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest"
+      - printf '[{"name":"rakeshcontainer","imageUri":"%s"}]' 318364255844.dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
