@@ -1,25 +1,21 @@
 version: 0.2
-eb_codebuild_settings:
-  CodeBuildServiceRole: arn:aws:iam::318364255844:role/service-role/codebuild-nextjs-mongodb-app-service-role
-  ComputeType: t2-small
-  Image: 318364255844.dkr.ecr.us-east-1.amazonaws.com/memepact
-  Timeout: 20
+
 phases:
-  install:
-    runtime-versions:
-      nodejs: 14
   pre_build:
     commands:
-      - echo Installing NPM dependencies...
-      - npm install
+      #- $(aws ecr get-login --no-include-email --region us-west-2)
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 318364255844dkr.ecr.us-west-2.amazonaws.com
   build:
     commands:
-      - echo Build started
+      - "echo Build started on `date`"
+      - "echo Building the Docker image..."
+      - "docker build -t nextjs-mongodb-app ."
+      - "docker tag nextjs-mongodb-app:latest 318364255844dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest"
   post_build:
     commands:
-      - echo Build completed on `date`
-
+      - "echo Build completed on `date`"
+      - "echo Pushing the Docker image..."
+      - "docker push 318364255844dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest"
+      - printf '[{"name":"rakeshcontainer","imageUri":"%s"}]' 318364255844dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest > imagedefinitions.json
 artifacts:
-  files:
-    - package.json
-    - .next/*
+  files: imagedefinitions.json

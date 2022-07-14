@@ -1,0 +1,40 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+  <body>
+    <table width="600">
+      <tr>
+        <td
+          valign="top"
+          height="700"
+          background="https://www.dropbox.com/s/24noh9kfhte89u0/Agenter.jpg?raw=1"
+          bgcolor="#F7901E"
+          style="
+            height: 700px;
+            background-image: url('https://www.dropbox.com/s/24noh9kfhte89u0/Agenter.jpg?raw=1');
+            background-color: #F7901E;
+          "
+        >
+          <!--[if gte mso 9]>
+          <v:image xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block; width: 550px; height: 700px;" src="https://www.dropbox.com/s/24noh9kfhte89u0/Agenter.jpg?raw=1" />
+          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block;position: absolute; width: 550px; height: 700px;">
+            <v:fill  opacity="0%" color="#F7901E"  />
+            <v:textbox inset="0,0,0,0">
+              <![endif]-->
+          <table>
+            <!-- HTML Content Here -->
+            <tr>
+              <td>
+                <p>Sample COntent</p>
+              </td>
+            </tr>
+          </table>
+          <!--[if gte mso 9]>
+            </v:textbox>
+            </v:fill>
+          </v:rect>
+          </v:image>
+          <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

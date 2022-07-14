@@ -1,4 +1,3 @@
-'use strict'
 import request from 'request';
 
 const sesUrl = process.env.SES_LAMBDA_URL;
