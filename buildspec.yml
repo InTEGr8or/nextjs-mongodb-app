@@ -16,6 +16,6 @@ phases:
       - "echo Build completed on `date`"
       - "echo Pushing the Docker image..."
       - "docker push 318364255844.dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest"
-      - printf '[{"name":"rakeshcontainer","imageUri":"%s"}]' 318364255844.dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest > imagedefinitions.json
+      - printf '[{"name":"nextjs-mongodb-app","imageUri":"%s"}]' 318364255844.dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
