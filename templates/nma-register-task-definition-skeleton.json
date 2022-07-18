@@ -1,0 +1,171 @@
+{
+    "containerDefinitions": [
+        {
+            "command": [ ],
+            "cpu": 0,
+            "dependsOn": [
+                {
+                    "condition": "HEALTHY",
+                    "containerName": ""
+                }
+            ],
+            "disableNetworking": true,
+            "dnsSearchDomains": [ ],
+            "dnsServers": [ ],
+            "dockerLabels": { },
+            "dockerSecurityOptions": [ ],
+            "entryPoint": [ ],
+            "environment": [ ],
+            "environmentFiles": [
+                {
+                    "type": "s3",
+                    "value": "arn:aws:s3:::sweet-sigs/.env"
+                }
+            ],
+            "essential": true,
+            "extraHosts": [ ],
+            "firelensConfiguration": {
+                "options": {
+                    "KeyName": ""
+                },
+                "type": "fluentbit"
+            },
+            "healthCheck": {
+                "command": [
+                    ""
+                ],
+                "interval": 0,
+                "retries": 0,
+                "startPeriod": 0,
+                "timeout": 0
+            },
+            "hostname": "",
+            "image": "318364255844.dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest",
+            "interactive": true,
+            "links": [
+                ""
+            ],
+            "linuxParameters": {
+                "capabilities": {
+                    "add": [
+                        ""
+                    ],
+                    "drop": [
+                        ""
+                    ]
+                },
+                "devices": [
+                    {
+                        "containerPath": "",
+                        "hostPath": "",
+                        "permissions": [
+                            "read"
+                        ]
+                    }
+                ],
+                "initProcessEnabled": true,
+                "maxSwap": 0,
+                "sharedMemorySize": 0,
+                "swappiness": 0,
+                "tmpfs": [
+                    {
+                        "containerPath": "",
+                        "mountOptions": [
+                            ""
+                        ],
+                        "size": 0
+                    }
+                ]
+            },
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/nextjs-mongodb-task-definition",
+                    "awslogs-region": "us-west-2",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": [ ]
+            },
+            "memory": 0,
+            "memoryReservation": 0,
+            "mountPoints": [ ],
+            "name": "nextjs-mongodb-app",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                }
+            ],
+            "privileged": true,
+            "pseudoTerminal": true,
+            "readonlyRootFilesystem": true,
+            "repositoryCredentials": {
+                "credentialsParameter": ""
+            },
+            "resourceRequirements": [
+                {
+                    "type": "InferenceAccelerator",
+                    "value": ""
+                }
+            ],
+            "secrets": [ ],
+            "startTimeout": 0,
+            "stopTimeout": 0,
+            "systemControls": [ ],
+            "ulimits": [ ],
+            "user": "",
+            "volumesFrom": [ ],
+            "workingDirectory": ""
+        }
+    ],
+    "cpu": "512",
+    "ephemeralStorage": {
+        "sizeInGiB": 0
+    },
+    "executionRoleArn": "arn:aws:iam::318364255844:role/ecsTaskExecutionRole",
+    "family": "nextjs-mongodb-task-definition",
+    "inferenceAccelerators": [
+        {
+            "deviceName": "",
+            "deviceType": ""
+        }
+    ],
+    "ipcMode": "none",
+    "memory": "",
+    "networkMode": "awsvpc",
+    "pidMode": "task",
+    "placementConstraints": [
+        {
+            "expression": "",
+            "type": "memberOf"
+        }
+    ],
+    "proxyConfiguration": {
+        "containerName": "",
+        "properties": [
+            {
+                "name": "",
+                "value": ""
+            }
+        ],
+        "type": "APPMESH"
+    },
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "tags": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::318364255844:role/ecsTaskExecutionRole",
+    "volumes": [
+    ]
+}
