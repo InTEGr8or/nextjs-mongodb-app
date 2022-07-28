@@ -40,6 +40,7 @@ handler.patch(
       username: ValidateProps.user.username,
       name: ValidateProps.user.name,
       bio: ValidateProps.user.bio,
+      website: ValidateProps.user.website
     },
     additionalProperties: true,
   }),
@@ -60,7 +61,7 @@ handler.patch(
       });
       profilePicture = image.secure_url;
     }
-    const { name, bio } = req.body;
+    const { name, bio, website } = req.body;
 
     let username;
 
@@ -80,6 +81,7 @@ handler.patch(
     const user = await updateUserById(db, req.user._id, {
       ...(username && { username }),
       ...(name && { name }),
+      ...(website && { website }),
       ...(typeof bio === 'string' && { bio }),
       ...(profilePicture && { profilePicture }),
     });

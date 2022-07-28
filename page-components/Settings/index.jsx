@@ -110,6 +110,7 @@ const AboutYou = ({ user, mutate }) => {
   const usernameRef = useRef();
   const nameRef = useRef();
   const bioRef = useRef();
+  const websiteRef = useRef();
   const profilePictureRef = useRef();
 
   const [avatarHref, setAvatarHref] = useState(user.profilePicture);
@@ -134,6 +135,7 @@ const AboutYou = ({ user, mutate }) => {
         formData.append('username', usernameRef.current.value);
         formData.append('name', nameRef.current.value);
         formData.append('bio', bioRef.current.value);
+        formData.append('website', websiteRef.current.value);
         if (profilePictureRef.current.files[0]) {
           formData.append('profilePicture', profilePictureRef.current.files[0]);
         }
@@ -156,6 +158,7 @@ const AboutYou = ({ user, mutate }) => {
     usernameRef.current.value = user.username;
     nameRef.current.value = user.name;
     bioRef.current.value = user.bio;
+    websiteRef.current.value = user.website;
     profilePictureRef.current.value = '';
     setAvatarHref(user.profilePicture);
   }, [user]);
@@ -169,6 +172,8 @@ const AboutYou = ({ user, mutate }) => {
         <Input ref={nameRef} label="Your Name" />
         <Spacer size={0.5} axis="vertical" />
         <Textarea ref={bioRef} label="Your Bio" />
+        <Spacer size={0.5} axis="vertical" />
+        <Input ref={websiteRef} label="Company Website" />
         <Spacer size={0.5} axis="vertical" />
         <span className={styles.label}>Your Avatar</span>
         <div className={styles.avatar}>
