@@ -62,7 +62,9 @@ export async function insertUser(
     name,
     username,
     bio,
-    website
+    website,
+    address,
+    phone
   };
   const password = await bcrypt.hash(originalPassword, 10);
   const { insertedId } = await db

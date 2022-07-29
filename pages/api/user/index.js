@@ -40,7 +40,9 @@ handler.patch(
       username: ValidateProps.user.username,
       name: ValidateProps.user.name,
       bio: ValidateProps.user.bio,
-      website: ValidateProps.user.website
+      website: ValidateProps.user.website,
+      address: ValidateProps.user.address,
+      phone: ValidateProps.user.phone
     },
     additionalProperties: true,
   }),
@@ -61,7 +63,7 @@ handler.patch(
       });
       profilePicture = image.secure_url;
     }
-    const { name, bio, website } = req.body;
+    const { name, bio, website, address, phone } = req.body;
 
     let username;
 
@@ -82,6 +84,8 @@ handler.patch(
       ...(username && { username }),
       ...(name && { name }),
       ...(website && { website }),
+      ...(address && { address }),
+      ...(phone && { phone }),
       ...(typeof bio === 'string' && { bio }),
       ...(profilePicture && { profilePicture }),
     });

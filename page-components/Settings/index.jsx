@@ -111,6 +111,8 @@ const AboutYou = ({ user, mutate }) => {
   const nameRef = useRef();
   const bioRef = useRef();
   const websiteRef = useRef();
+  const addressRef = useRef();
+  const phoneRef = useRef();
   const profilePictureRef = useRef();
 
   const [avatarHref, setAvatarHref] = useState(user.profilePicture);
@@ -136,6 +138,8 @@ const AboutYou = ({ user, mutate }) => {
         formData.append('name', nameRef.current.value);
         formData.append('bio', bioRef.current.value);
         formData.append('website', websiteRef.current.value);
+        formData.append('address', addressRef.current.value);
+        formData.append('phone', phoneRef.current.value);
         if (profilePictureRef.current.files[0]) {
           formData.append('profilePicture', profilePictureRef.current.files[0]);
         }
@@ -159,6 +163,8 @@ const AboutYou = ({ user, mutate }) => {
     nameRef.current.value = user.name;
     bioRef.current.value = user.bio;
     websiteRef.current.value = user.website;
+    addressRef.current.value = user.address;
+    phoneRef.current.value = user.phone;
     profilePictureRef.current.value = '';
     setAvatarHref(user.profilePicture);
   }, [user]);
@@ -171,11 +177,12 @@ const AboutYou = ({ user, mutate }) => {
         <Spacer size={0.5} axis="vertical" />
         <Input ref={nameRef} label="Your Name" />
         <Spacer size={0.5} axis="vertical" />
-        <Textarea ref={bioRef} label="Your Bio" />
+        <h4 className={styles.sectionTitle}>Signature Default Data</h4>
+        <Textarea ref={bioRef} label="Company Slogan" />
         <Spacer size={0.5} axis="vertical" />
         <Input ref={websiteRef} label="Company Website" />
         <Spacer size={0.5} axis="vertical" />
-        <span className={styles.label}>Your Avatar</span>
+        <span className={styles.label}>Company Logo</span>
         <div className={styles.avatar}>
           <Avatar size={96} username={user.username} url={avatarHref} />
           <input
@@ -186,6 +193,11 @@ const AboutYou = ({ user, mutate }) => {
             onChange={onAvatarChange}
           />
         </div>
+        <h4 className={styles.sectionTitle}>Social Links (optional)</h4>
+        <Spacer size={0.5} axis="vertical" />
+        <Input ref={addressRef} label="Address" />
+        <Spacer size={0.5} axis="vertical" />
+        <Input ref={phoneRef} label="Phone" />
         <Spacer size={0.5} axis="vertical" />
         <Button
           htmlType="submit"
