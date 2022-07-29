@@ -133,7 +133,6 @@
         }
     ],
     "ipcMode": "none",
-    "memory": "",
     "networkMode": "awsvpc",
     "pidMode": "task",
     "placementConstraints": [
@@ -159,12 +158,6 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "tags": [
-        {
-            "key": "",
-            "value": ""
-        }
-    ],
     "taskRoleArn": "arn:aws:iam::318364255844:role/ecsTaskExecutionRole",
     "volumes": [
     ]

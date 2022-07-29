@@ -1,0 +1,50 @@
+- Stacks:
+  - Capabilities:
+    - CAPABILITY_IAM
+    - CAPABILITY_NAMED_IAM
+    - CAPABILITY_AUTO_EXPAND
+    ChangeSetId: arn:aws:cloudformation:us-west-2:318364255844:changeSet/copilot-3770e75d-bf94-4c1d-9185-95ec8c07e754/26994afe-18fe-4304-9dcb-9e36422d2567
+    CreationTime: '2022-07-18T22:47:37.382000+00:00'
+    Description: Configure the AWSCloudFormationStackSetAdministrationRole to enable
+      use of AWS CloudFormation StackSets.
+    DisableRollback: false
+    DriftInformation:
+      LastCheckTimestamp: '2022-07-26T21:58:30.222000+00:00'
+      StackDriftStatus: IN_SYNC
+    EnableTerminationProtection: false
+    LastUpdatedTime: '2022-07-18T22:47:43.117000+00:00'
+    NotificationARNs: []
+    Outputs:
+    - Description: ExecutionRole used by this application to set up ECR Repos, KMS
+        Keys and S3 buckets
+      OutputKey: ExecutionRoleARN
+      OutputValue: arn:aws:iam::318364255844:role/nextjs-mongodb-app-cp-executionrole
+    - Description: AdministrationRole used by this application to manage this application's
+        StackSet
+      OutputKey: AdministrationRoleARN
+      OutputValue: arn:aws:iam::318364255844:role/nextjs-mongodb-app-cp-adminrole
+    - Description: Required output to force the stack to update if mutating version.
+      OutputKey: TemplateVersion
+      OutputValue: v1.0.2
+    Parameters:
+    - ParameterKey: AppDomainHostedZoneID
+      ParameterValue: ''
+    - ParameterKey: AdminRoleName
+      ParameterValue: nextjs-mongodb-app-cp-adminrole
+    - ParameterKey: AppDomainName
+      ParameterValue: ''
+    - ParameterKey: AppDNSDelegatedAccounts
+      ParameterValue: '318364255844'
+    - ParameterKey: ExecutionRoleName
+      ParameterValue: nextjs-mongodb-app-cp-executionrole
+    - ParameterKey: DNSDelegationRoleName
+      ParameterValue: nextjs-mongodb-app-cp-DNSDelegationRole
+    - ParameterKey: AppName
+      ParameterValue: nextjs-mongodb-app-cp
+    RollbackConfiguration: {}
+    StackId: arn:aws:cloudformation:us-west-2:318364255844:stack/nextjs-mongodb-app-cp-infrastructure-roles/9effd140-06eb-11ed-9fca-0aca1f7de0a7
+    StackName: nextjs-mongodb-app-cp-infrastructure-roles
+    StackStatus: CREATE_COMPLETE
+    Tags:
+    - Key: copilot-application
+      Value: nextjs-mongodb-app-cp

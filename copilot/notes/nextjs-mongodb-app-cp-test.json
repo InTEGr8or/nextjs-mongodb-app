@@ -1,0 +1,165 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:us-west-2:318364255844:stack/nextjs-mongodb-app-cp-test/9937e8a0-06ec-11ed-ac54-024d8e870689",
+            "StackName": "nextjs-mongodb-app-cp-test",
+            "Description": "CloudFormation environment template for infrastructure shared among Copilot workloads.",
+            "Parameters": [
+                {
+                    "ParameterKey": "AppDNSName",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ALBWorkloads",
+                    "ParameterValue": "nm-cp-service"
+                },
+                {
+                    "ParameterKey": "EnvironmentName",
+                    "ParameterValue": "test"
+                },
+                {
+                    "ParameterKey": "AppDNSDelegationRole",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "ServiceDiscoveryEndpoint",
+                    "ParameterValue": "test.nextjs-mongodb-app-cp.local"
+                },
+                {
+                    "ParameterKey": "ToolsAccountPrincipalARN",
+                    "ParameterValue": "arn:aws:iam::318364255844:root"
+                },
+                {
+                    "ParameterKey": "NATWorkloads",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "EFSWorkloads",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "Aliases",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "CreateHTTPSListener",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "AppName",
+                    "ParameterValue": "nextjs-mongodb-app-cp"
+                }
+            ],
+            "CreationTime": "2022-07-18T22:54:37.391000+00:00",
+            "LastUpdatedTime": "2022-07-18T22:57:05.033000+00:00",
+            "RollbackConfiguration": {},
+            "StackStatus": "UPDATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM",
+                "CAPABILITY_AUTO_EXPAND"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "CFNExecutionRoleARN",
+                    "OutputValue": "arn:aws:iam::318364255844:role/nextjs-mongodb-app-cp-test-CFNExecutionRole",
+                    "Description": "The role to be assumed by the Cloudformation service when it deploys application infrastructure.",
+                    "ExportName": "nextjs-mongodb-app-cp-test-CFNExecutionRoleARN"
+                },
+                {
+                    "OutputKey": "ClusterId",
+                    "OutputValue": "nextjs-mongodb-app-cp-test-Cluster-XpxomaJMJSjx",
+                    "ExportName": "nextjs-mongodb-app-cp-test-ClusterId"
+                },
+                {
+                    "OutputKey": "PublicRouteTableID",
+                    "OutputValue": "rtb-025b11601afa68ebf",
+                    "ExportName": "nextjs-mongodb-app-cp-test-PublicRouteTableID"
+                },
+                {
+                    "OutputKey": "PublicLoadBalancerHostedZone",
+                    "OutputValue": "Z1H1FL5HABSF5",
+                    "ExportName": "nextjs-mongodb-app-cp-test-CanonicalHostedZoneID"
+                },
+                {
+                    "OutputKey": "EnabledFeatures",
+                    "OutputValue": "nm-cp-service,,",
+                    "Description": "Required output to force the stack to update if mutating feature params, like ALBWorkloads, does not change the template."
+                },
+                {
+                    "OutputKey": "PrivateSubnets",
+                    "OutputValue": "subnet-09aaa2a556a8ef7e8,subnet-0fb62a87656769786",
+                    "ExportName": "nextjs-mongodb-app-cp-test-PrivateSubnets"
+                },
+                {
+                    "OutputKey": "InternetGatewayID",
+                    "OutputValue": "igw-00a14002c4698f1cb",
+                    "ExportName": "nextjs-mongodb-app-cp-test-InternetGatewayID"
+                },
+                {
+                    "OutputKey": "PublicLoadBalancerFullName",
+                    "OutputValue": "app/nextj-Publi-16HSXDSKGN8XS/83f9b4d4c1f47de2",
+                    "ExportName": "nextjs-mongodb-app-cp-test-PublicLoadBalancerFullName"
+                },
+                {
+                    "OutputKey": "VpcId",
+                    "OutputValue": "vpc-0e119548fb97e921b",
+                    "ExportName": "nextjs-mongodb-app-cp-test-VpcId"
+                },
+                {
+                    "OutputKey": "HTTPListenerArn",
+                    "OutputValue": "arn:aws:elasticloadbalancing:us-west-2:318364255844:listener/app/nextj-Publi-16HSXDSKGN8XS/83f9b4d4c1f47de2/18c13e23ed8da319",
+                    "ExportName": "nextjs-mongodb-app-cp-test-HTTPListenerArn"
+                },
+                {
+                    "OutputKey": "PublicSubnets",
+                    "OutputValue": "subnet-0754819a8aa9b59a5,subnet-0d0aae82b815ce91d",
+                    "ExportName": "nextjs-mongodb-app-cp-test-PublicSubnets"
+                },
+                {
+                    "OutputKey": "EnvironmentManagerRoleARN",
+                    "OutputValue": "arn:aws:iam::318364255844:role/nextjs-mongodb-app-cp-test-EnvManagerRole",
+                    "Description": "The role to be assumed by the ecs-cli to manage environments.",
+                    "ExportName": "nextjs-mongodb-app-cp-test-EnvironmentManagerRoleARN"
+                },
+                {
+                    "OutputKey": "ServiceDiscoveryNamespaceID",
+                    "OutputValue": "ns-6agnjayp6giffjjf",
+                    "ExportName": "nextjs-mongodb-app-cp-test-ServiceDiscoveryNamespaceID"
+                },
+                {
+                    "OutputKey": "EnvironmentSecurityGroup",
+                    "OutputValue": "sg-0d85f535aaaf5881c",
+                    "ExportName": "nextjs-mongodb-app-cp-test-EnvironmentSecurityGroup"
+                },
+                {
+                    "OutputKey": "DefaultHTTPTargetGroupArn",
+                    "OutputValue": "arn:aws:elasticloadbalancing:us-west-2:318364255844:targetgroup/nextj-Defau-AXDLBHSZH9BY/e2ce683718929e29",
+                    "ExportName": "nextjs-mongodb-app-cp-test-DefaultHTTPTargetGroup"
+                },
+                {
+                    "OutputKey": "PublicLoadBalancerDNSName",
+                    "OutputValue": "nextj-Publi-16HSXDSKGN8XS-809033723.us-west-2.elb.amazonaws.com",
+                    "ExportName": "nextjs-mongodb-app-cp-test-PublicLoadBalancerDNS"
+                }
+            ],
+            "RoleARN": "arn:aws:iam::318364255844:role/nextjs-mongodb-app-cp-test-CFNExecutionRole",
+            "Tags": [
+                {
+                    "Key": "copilot-application",
+                    "Value": "nextjs-mongodb-app-cp"
+                },
+                {
+                    "Key": "copilot-environment",
+                    "Value": "test"
+                }
+            ],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

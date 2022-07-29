@@ -1,0 +1,118 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:us-west-2:318364255844:stack/nextjs-mongodb-app-cp-test-nm-cp-service/d38aa240-06ec-11ed-82cf-0a1a7e580233",
+            "StackName": "nextjs-mongodb-app-cp-test-nm-cp-service",
+            "ChangeSetId": "arn:aws:cloudformation:us-west-2:318364255844:changeSet/copilot-253380cb-9bc4-4556-b563-b5e27e646cbd/b9c4b08b-e0a2-4fd1-b4aa-00d3344e48bd",
+            "Description": "CloudFormation template that represents a load balanced web service on Amazon ECS.",
+            "Parameters": [
+                {
+                    "ParameterKey": "TargetPort",
+                    "ParameterValue": "3000"
+                },
+                {
+                    "ParameterKey": "TaskCount",
+                    "ParameterValue": "1"
+                },
+                {
+                    "ParameterKey": "EnvFileARN",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "AppName",
+                    "ParameterValue": "nextjs-mongodb-app-cp"
+                },
+                {
+                    "ParameterKey": "DNSDelegated",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "HTTPSEnabled",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "WorkloadName",
+                    "ParameterValue": "nm-cp-service"
+                },
+                {
+                    "ParameterKey": "TaskCPU",
+                    "ParameterValue": "256"
+                },
+                {
+                    "ParameterKey": "TaskMemory",
+                    "ParameterValue": "512"
+                },
+                {
+                    "ParameterKey": "ContainerImage",
+                    "ParameterValue": "318364255844.dkr.ecr.us-west-2.amazonaws.com/nextjs-mongodb-app:latest"
+                },
+                {
+                    "ParameterKey": "ContainerPort",
+                    "ParameterValue": "3000"
+                },
+                {
+                    "ParameterKey": "AddonsTemplateURL",
+                    "ParameterValue": ""
+                },
+                {
+                    "ParameterKey": "RulePath",
+                    "ParameterValue": "/"
+                },
+                {
+                    "ParameterKey": "Stickiness",
+                    "ParameterValue": "false"
+                },
+                {
+                    "ParameterKey": "LogRetention",
+                    "ParameterValue": "30"
+                },
+                {
+                    "ParameterKey": "EnvName",
+                    "ParameterValue": "test"
+                },
+                {
+                    "ParameterKey": "TargetContainer",
+                    "ParameterValue": "nm-cp-service"
+                }
+            ],
+            "CreationTime": "2022-07-18T22:56:15.347000+00:00",
+            "LastUpdatedTime": "2022-07-18T22:56:21.008000+00:00",
+            "RollbackConfiguration": {},
+            "StackStatus": "CREATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM",
+                "CAPABILITY_AUTO_EXPAND"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "DiscoveryServiceARN",
+                    "OutputValue": "arn:aws:servicediscovery:us-west-2:318364255844:service/srv-s6inod6dyhog4a4n",
+                    "Description": "ARN of the Discovery Service.",
+                    "ExportName": "nextjs-mongodb-app-cp-test-nm-cp-service-DiscoveryServiceARN"
+                }
+            ],
+            "RoleARN": "arn:aws:iam::318364255844:role/nextjs-mongodb-app-cp-test-CFNExecutionRole",
+            "Tags": [
+                {
+                    "Key": "copilot-service",
+                    "Value": "nm-cp-service"
+                },
+                {
+                    "Key": "copilot-application",
+                    "Value": "nextjs-mongodb-app-cp"
+                },
+                {
+                    "Key": "copilot-environment",
+                    "Value": "test"
+                }
+            ],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

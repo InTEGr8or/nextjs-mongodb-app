@@ -1,0 +1,31 @@
+- Stacks:
+  - CreationTime: '2022-07-18T22:52:17.036000+00:00'
+    Description: Cross-regional resources to support the CodePipeline for a workspace
+    DisableRollback: false
+    DriftInformation:
+      LastCheckTimestamp: '2022-07-26T21:58:43.241000+00:00'
+      StackDriftStatus: IN_SYNC
+    EnableTerminationProtection: false
+    NotificationARNs:
+    - arn:aws:sns:us-west-2:173613124251:CfnNotificationSNSTopic
+    Outputs:
+    - Description: KMS Key used by CodePipeline for encrypting artifacts.
+      ExportName: nextjs-mongodb-app-cp-ArtifactKey
+      OutputKey: KMSKeyARN
+      OutputValue: arn:aws:kms:us-west-2:318364255844:key/cd17f72f-3622-44d0-aaa6-f650a54a4e87
+    - Description: Required output to force the stackset to update if mutating version.
+      OutputKey: TemplateVersion
+      OutputValue: v1.0.2
+    - Description: ECR Repo used to store images of the nm-cp-service service.
+      OutputKey: ECRReponmDASHcpDASHservice
+      OutputValue: arn:aws:ecr:us-west-2:318364255844:repository/nextjs-mongodb-app-cp/nm-cp-service
+    - Description: Bucket used for CodePipeline to stage resources in.
+      OutputKey: PipelineBucket
+      OutputValue: stackset-nextjs-mongodb-pipelinebuiltartifactbuc-197tvjknxka4s
+    RollbackConfiguration: {}
+    StackId: arn:aws:cloudformation:us-west-2:318364255844:stack/StackSet-nextjs-mongodb-app-cp-infrastructure-9dfab43a-24ed-4b85-a8b8-ffea5a84db57/459d5220-06ec-11ed-a78f-02b64ea24ea7
+    StackName: StackSet-nextjs-mongodb-app-cp-infrastructure-9dfab43a-24ed-4b85-a8b8-ffea5a84db57
+    StackStatus: CREATE_COMPLETE
+    Tags:
+    - Key: copilot-application
+      Value: nextjs-mongodb-app-cp
