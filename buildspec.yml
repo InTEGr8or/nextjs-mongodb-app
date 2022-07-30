@@ -8,8 +8,8 @@ phases:
   pre_build:
     commands:
       - docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS
-      - $(aws ecr get-login --no-include-email --region us-west-2)
-      # - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 318364255844.dkr.ecr.us-west-2.amazonaws.com
+      # - $(aws ecr get-login --no-include-email --region us-west-2)
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 318364255844.dkr.ecr.us-west-2.amazonaws.com
   build:
     commands:
       - "echo Build started on `date`"
