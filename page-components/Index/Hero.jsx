@@ -17,15 +17,8 @@ const Hero = () => {
           </h1>
           <Container justifyContent="center" className={styles.buttons}>
             <Container>
-              <Link passHref href="/feed">
-                <ButtonLink className={styles.button}>Explore Feed</ButtonLink>
-              </Link>
-            </Container>
-            <Spacer axis="horizontal" size={1} />
-            <Container>
               <ButtonLink
-                href="https://github.com/hoangvvo/nextjs-mongodb-app"
-                type="secondary"
+                href="https://github.com/InTEGr8or/nextjs-mongodb-app"
                 className={styles.button}
               >
                 GitHub
