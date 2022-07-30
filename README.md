@@ -111,7 +111,7 @@ Environmental variables in this project include:
 
 <h3 align="center">Development</h3>
 
-Start the development server by running `yarn dev` or `npm run dev`. Getting started by create a `.env.local` file with the above variables. See [Environment Variables](https://nextjs.org/docs/basic-features/environment-variables).
+Start the development server by running `yarn dev` or `npm run dev`. Getting started by create a `.local.env` file with the above variables. See [Environment Variables](https://nextjs.org/docs/basic-features/environment-variables).
 
 <h2 align="center">Deployment</h2>
 

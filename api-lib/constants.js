@@ -7,7 +7,11 @@ export const ValidateProps = {
     bio: { type: 'string', minLength: 0, maxLength: 160 },
     website: { type: 'string', minLength: 12 },
     address: { type: 'string', minLength: 5 },
-    phone: { type: 'string', minLength: 10 }
+    phone: { type: 'string', minLength: 10 },
+    socialLinks: []
+  },
+  socialLink: {
+    url: { type: 'string', minLength: 5 }
   },
   post: {
     content: { type: 'string', minLength: 1, maxLength: 280 },
