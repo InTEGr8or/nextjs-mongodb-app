@@ -114,6 +114,7 @@ const AboutYou = ({ user, mutate }) => {
   const addressRef = useRef();
   const phoneRef = useRef();
   const profilePictureRef = useRef();
+  const socialLinksRef = useRef();
 
   const [avatarHref, setAvatarHref] = useState(user.profilePicture);
   const onAvatarChange = useCallback((e) => {
@@ -140,6 +141,7 @@ const AboutYou = ({ user, mutate }) => {
         formData.append('website', websiteRef.current.value);
         formData.append('address', addressRef.current.value);
         formData.append('phone', phoneRef.current.value);
+        formData.append('socialLinks', socialLinksRef.current.value);
         if (profilePictureRef.current.files[0]) {
           formData.append('profilePicture', profilePictureRef.current.files[0]);
         }
@@ -165,6 +167,7 @@ const AboutYou = ({ user, mutate }) => {
     websiteRef.current.value = user.website;
     addressRef.current.value = user.address;
     phoneRef.current.value = user.phone;
+    socialLinksRef.current.value = user.socialLinks;
     profilePictureRef.current.value = '';
     setAvatarHref(user.profilePicture);
   }, [user]);
@@ -178,6 +181,7 @@ const AboutYou = ({ user, mutate }) => {
         <Input ref={nameRef} label="Your Name" />
         <Spacer size={0.5} axis="vertical" />
         <h4 className={styles.sectionTitle}>Signature Default Data</h4>
+        <p class="info">This default data can be overwritten by any more specific data provided in each line of the spreadsheet.</p>
         <Textarea ref={bioRef} label="Company Slogan" />
         <Spacer size={0.5} axis="vertical" />
         <Input ref={websiteRef} label="Company Website" />
@@ -193,11 +197,11 @@ const AboutYou = ({ user, mutate }) => {
             onChange={onAvatarChange}
           />
         </div>
-        <h4 className={styles.sectionTitle}>Social Links (optional)</h4>
-        <Spacer size={0.5} axis="vertical" />
         <Input ref={addressRef} label="Address" />
         <Spacer size={0.5} axis="vertical" />
         <Input ref={phoneRef} label="Phone" />
+        <Spacer size={0.5} axis="vertical" />
+        <Textarea ref={socialLinksRef} label="Social Links (one per line)" />
         <Spacer size={0.5} axis="vertical" />
         <Button
           htmlType="submit"

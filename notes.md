@@ -14,13 +14,13 @@ This is the minimal change-set:
 Commit: [c9584cc](https://github.com/InTEGr8or/nextjs-mongodb-app/commit/c9584ccad0b0c5dd93d53e5544f4e70f6a4807a6)
 
 
-[[api-lib/constants.js]]:
+[api-lib/constants.js](api-lib/constants.js)
 - add `website: { type: 'string', minLength: 12}` to `ValidateProps`
 
-[[api-lib/user.js]]:
+[api-lib/db/user.js](api-lib/db/user.js)
 - Add `website` to `insertUser()`
 
-[[page-components/Settings/index.jsx]]
+[page-components/Settings/index.jsx](page-components/Settings/index.jsx)
 - `const websiteRef = useRef();`
 
 ```diff
@@ -60,7 +60,7 @@ Commit: [c9584cc](https://github.com/InTEGr8or/nextjs-mongodb-app/commit/c9584cc
 ```
 
 
-[[pages/api/user/index.js]]
+[pages/api/user/index.js](pages/api/user/index.js)
 
 ```diff
 @@ -40,6 +40,7 @@ handler.patch(

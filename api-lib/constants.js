@@ -8,7 +8,7 @@ export const ValidateProps = {
     website: { type: 'string', minLength: 12 },
     address: { type: 'string', minLength: 5 },
     phone: { type: 'string', minLength: 10 },
-    socialLinks: []
+    socialLinks: { type: 'string', minLength: 5}
   },
   socialLink: {
     url: { type: 'string', minLength: 5 }

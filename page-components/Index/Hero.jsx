@@ -19,6 +19,7 @@ const Hero = () => {
             <Container>
               <ButtonLink
                 href="https://github.com/InTEGr8or/nextjs-mongodb-app"
+                target="_blank"
                 className={styles.button}
               >
                 GitHub
